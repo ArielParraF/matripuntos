@@ -1,5 +1,5 @@
 import { Text } from 'react-native';
-import { router, Stack, useLocalSearchParams } from 'expo-router';
+import { Stack, useLocalSearchParams } from 'expo-router';
 import { useSession } from '../../lib/session';
 import { findGame } from '../../games';
 import { Screen, styles } from '../../components/ui';
@@ -18,10 +18,7 @@ export default function Juego() {
     );
   }
 
-  const onFinish = async (result) => {
-    await addGameResult({ gameId: id, mode, ...result });
-    router.back();
-  };
+  const onFinish = (result) => addGameResult({ gameId: id, mode, ...result });
 
   return (
     <>

@@ -75,8 +75,10 @@ export default function Matripuntos() {
         ListEmptyComponent={<Text style={styles.muted}>Aún no hay matripuntos. ¡Dale el primero a {displayName(partner)}!</Text>}
         renderItem={({ item }) => {
           const positive = item.amount > 0;
+          // Each entry wears the colors of whoever gave/took the points.
+          const p = paletteFor((item.fromId === user.id ? user : partner).genero);
           return (
-            <Card style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+            <Card style={{ flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: p.tint, borderLeftWidth: 6, borderLeftColor: p.primary }}>
               <Text style={{ fontSize: 22, fontWeight: '900', color: positive ? colors.good : colors.bad, minWidth: 48 }}>
                 {positive ? '+' : ''}
                 {item.amount}
