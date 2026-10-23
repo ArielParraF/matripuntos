@@ -25,6 +25,9 @@
       "expo-router",
       "expo-status-bar"
     ],
-    "scheme": "matripuntos"
+    "scheme": "matripuntos",
+    "experiments": {
+      "baseUrl": "/matripuntos"
+    }
   }
 }
